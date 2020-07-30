@@ -74,7 +74,9 @@ highlighter: rouge
 sass:
   sass_dir: _sass
   style: :compressed
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - jekyll-avatar
 exclude:
   - Gemfile
   - Gemfile.lock
