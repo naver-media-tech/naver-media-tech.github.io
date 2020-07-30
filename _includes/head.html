@@ -1,21 +1,21 @@
 <head>
 	<meta charset="utf-8">
-	<title>{% if page.title %}{{ page.title }} |{% endif %} {{ site.theme_settings.title }}</title>
+	<title>{% if page.title %}{{ page.title }} |{% endif %} {{ site.meta.title }}</title>
 	<meta name="description"
-		content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.theme_settings.description }}{% endif %}">
+		content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.meta.description }}{% endif %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
 	<!--Favicon-->
-	<link rel="shortcut icon" href="{{ site.baseurl }}/{{ site.theme_settings.favicon }}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{ site.baseurl }}/{{ site.meta.favicon }}" type="image/x-icon">
 
 	<!-- Canonical -->
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="{{ site.theme_settings.title }}"
+	<link rel="alternate" type="application/atom+xml" title="{{ site.meta.title }}"
 		href="{{ "/feed.xml" | relative_url }}" />
 
 	<!-- Font Awesome -->

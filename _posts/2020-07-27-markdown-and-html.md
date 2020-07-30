@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Markdown and HTML
+title: "마크다운 문법 등은 이 글을 참고하세요."
+author: "김탱"
+description: "여기에는 글 설명이 들어갈 위치랍니다. 여기에는 글 설명이 들어갈 위치랍니다. 여기에는 글 설명이 들어갈 위치랍니다. "
 ---
 
 Jekyll supports the use of [Markdown](http://daringfireball.net/projects/markdown/syntax) with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.
@@ -18,7 +20,7 @@ Here's an example of an image, which is included using Markdown:
 
 Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Rouge by default.
 
-{% highlight js %}
+```js
 // count to ten
 for (var i = 1; i <= 10; i++) {
     console.log(i);
@@ -30,7 +32,7 @@ while (j < 20) {
     j++;
     console.log(j);
 }
-{% endhighlight %}
+```
 
 Type Theme uses KaTeX to display maths. Equations such as $$S_n = a \times \frac{1-r^n}{1-r}$$ can be displayed inline.
 

@@ -2,23 +2,19 @@
 baseurl: ""
 url: ""
 
-# THEME-SPECIFIC CONFIGURATION
-theme_settings:
-  # Meta
-  title: Type Theme
-  avatar: assets/img/avatar.png
-  favicon: assets/favicon.ico
-  gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+meta:
+  title: Media Tech 기술블로그 # 브라우저 타이틀
+  avatar: assets/img/avatar.png # 블로그 내부에서 사용하는 아바타 이미지
+  favicon: assets/favicon.ico # 파비콘 이미지
+  description: "네이버 Media Tech 기술 블로그입니다." # meta descrip[tion
 
+theme_settings:
   # Header and footer text
   header_text: >
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-     <p>Remove all header text in <code>_config.yml</code> to disable this feature.</p>
-  header_text_feature_image:
+     <p>여기는 지금 홈에서 보여질 영역의 텍스트인데, 필요없으면 다른 것으로 대체가 필요해요.</p>
+  header_text_feature_image: # 이미지가있다면 여기에다 넣겠죠?
   footer_text: >
-   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+   열심히 뚝딱뚝딱 화이팅입니다~ ㅎ
 
   # Icons
   rss: false
@@ -29,7 +25,7 @@ theme_settings:
   facebook:
   flickr:
   gitlab:
-  github: "rohanchandra/type-theme"
+  github: "naver-media-tech/naver-media-tech.github.io"
   gitter:
   google_plus:
   instagram:
@@ -58,7 +54,6 @@ theme_settings:
   str_previous_post: "Previous post"
   str_next_page: "Next"
   str_previous_page: "Prev"
-  str_continue_reading: "Continue reading"
   str_javascript_required_disqus: "Please enable JavaScript to view comments."
   str_search_no_results: "No results found."
 
@@ -70,8 +65,8 @@ theme_settings:
   post_navigation: false
 
 # PAGINATION
-paginate: 5
-paginate_path: "blog/page:num"
+paginate: 10
+paginate_path: "/page:num"
 
 # BUILD SETTINGS
 markdown: kramdown
@@ -86,3 +81,6 @@ exclude:
 
 # 글의 링크 패턴
 permalink: /post/:title
+
+# 타임존
+tiemzone: Asis/Seoul
