@@ -1,6 +1,6 @@
 // Header text feature
 .call-out {
-  @extend %padding-regular;
+  @extend %padding-small-vertical-regular-width;
   display: inline-block;
   width: 100%;
   background-color:$header-desc-background-color;
