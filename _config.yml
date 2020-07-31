@@ -11,8 +11,9 @@ meta:
 theme_settings:
   # Header and footer text
   header_text: >
-     <p>여기는 지금 홈에서 보여질 영역의 텍스트인데, 필요없으면 다른 것으로 대체가 필요해요.</p>
-  header_text_feature_image: # 이미지가있다면 여기에다 넣겠죠?
+     <p>죽는 날까지 코드를 우러러 한 줄 부끄럼 없기를<br>컴파일 되는 시간 조차도, 리팩토링 할지 말지<br>나는 괴로워 했다.</p>
+     <p><a href="https://recruit.navercorp.com/naver/job/detail/developer?annoId=20003996&classId=&jobId=&entTypeCd=&searchTxt=&searchSysComCd=" target="_blank">네이버 미디어 테크 지원하러 가기</a></p>
+  header_text_feature_image: #  assets/img/new-banner.png  이미지가있다면 여기에다 넣겠죠?
   footer_text: >
    열심히 뚝딱뚝딱 화이팅입니다~ ㅎ
 
