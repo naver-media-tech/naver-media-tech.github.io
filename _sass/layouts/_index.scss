@@ -12,12 +12,18 @@
 .call-out p:last-child {
   margin-bottom: 0;
 }
+.call-out p {
+  font-size: 1.5em;
+  font-family: Nanum Pen Script, sans-serif;
+  //  Nanum Gothic Coding, Gaegu, https://fonts.google.com/?subset=korean
+}
 .call-out a {
+  //font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   color: $header-desc-link-color;
   border: 1px solid #FFFFFF;
   border-radius: 2px;
-  font-size: 0.6em;
-  padding: 12px 22px;
+  font-size: 0.8em;
+  padding: 10px 15px;
   letter-spacing: -0.5px;
 }
 // Post listing
