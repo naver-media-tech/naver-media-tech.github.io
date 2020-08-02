@@ -29,7 +29,7 @@
 // Post listing
 .posts {
   .post-teaser {
-    @extend %padding-regular;
+    @extend %padding-small-regular;
     width: 100%;
     margin-bottom: 0;
     display: inline-block;
@@ -41,7 +41,19 @@
   }
   .excerpt {
     margin-top: 1em;
+    padding-top: 15px;
+    color: rgba($text-color, .5);
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    margin: 0;
   }
+}
+.flex-post-author{
+  display: flex;
+  margin-top: 25px;
+}
+.flex-post-author-item {
+  margin-right: 10px;
 }
 // Pagination
 .pagination .button {

@@ -21,25 +21,29 @@ layout: default
           </h1>
       </header>
       <div class="excerpt">
-        {{ post.description }}
+        {{ post.excerpt | strip_newlines | strip_html | truncatewords: 35, "..." }}
         <!--        {{ post.excerpt }} 본문 요약문은 이걸 씁니다. -->
       </div>
-      <p class="meta">
+      <div class="meta flex-post-author">
         {%- if post.authors -%}
         {% assign author_name = post.author %}
         {%- else if post.author -%}
         {% assign author = site.data.authors[post.author] %}
         {% assign author_name = author.name %}
-        {%- if author.username -%}
-        <a href="//github.com/{{ author.username }}" target="_blank">
-          {% avatar user=author.username size=40 %}
-        </a>
-        (github 와 연동해서 작성자 얼굴을 보여주면 어떨까요?)
+        <div class="flex-post-author-item">
+          {%- if author.username -%}
+          <a href="//github.com/{{ author.username }}" target="_blank">
+            {% avatar user=author.username size=32 %}
+          </a>
+          {%- endif -%}
+        </div>
+        <div class="flex-post-author-item">
+          {{ author.name }}
+          <br>
+          {{ post.date | date: "%B %-d, %Y" }}
+        </div>
         {%- endif -%}
-        {%- endif -%}
-        <br>
-        {{ author.name }}, {{ post.date | date: "%B %-d, %Y" }}
-      </p>
+      </div>
     </div>
     {% endfor %}
   </div>
