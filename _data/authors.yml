@@ -2,3 +2,8 @@ kimtaeng: # post의 author에 들어갑니다.
   name: kimtaeng
   username: madplay
   email: itsmetaeng@gmail.com
+
+phantasmicmeans: # post의 author에 들어갑니다.
+  name: phantasmicmeans
+  username: phantasmicmeans
+  email: phantasmicmeans@kakao.com
