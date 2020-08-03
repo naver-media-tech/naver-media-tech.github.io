@@ -20,17 +20,30 @@ Here's an example of an image, which is included using Markdown:
 
 Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Rouge by default.
 
-```js
-// count to ten
-for (var i = 1; i <= 10; i++) {
-    console.log(i);
-}
-
-// count to twenty
-var j = 0;
-while (j < 20) {
-    j++;
-    console.log(j);
+```java
+import java.util.*;
+ 
+class Palindrome
+{
+   public static void main(String args[])
+   {
+      String original, reverse = "";
+      Scanner in = new Scanner(System.in);
+ 
+      System.out.println("Enter a string to check if it is a palindrome");
+      original = in.nextLine();
+ 
+      int length = original.length();
+ 
+      for ( int i = length - 1; i >= 0; i-- )
+         reverse = reverse + original.charAt(i);
+ 
+      if (original.equals(reverse))
+         System.out.println("Entered string is a palindrome.");
+      else
+         System.out.println("Entered string is not a palindrome.");
+ 
+   }
 }
 ```
 
