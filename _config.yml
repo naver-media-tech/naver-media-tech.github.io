@@ -4,7 +4,7 @@ url: ""
 
 meta:
   title: Media Tech 기술블로그 # 브라우저 타이틀
-  avatar: assets/img/avatar.png # 블로그 내부에서 사용하는 아바타 이미지
+  avatar: assets/img/logo.png # 블로그 내부에서 사용하는 아바타 이미지
   favicon: assets/favicon.ico # 파비콘 이미지
   description: "네이버 Media Tech 기술 블로그입니다." # meta descrip[tion
 
