@@ -1,0 +1,11 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="author" content="Naver Media Tech"/>
+<meta name="title" content="{% if page.title %}{{ page.title }}{% else %}MadPlay's MadLife{% endif %}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Naver Media Tech Blog{% endif %}"/>
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="{{ site.url }}/{{ site.og-img }}"/>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.meta.description }}{% endif %}">
+<title>{% if page.title %}{{ page.title }} |{% endif %} {{ site.meta.title }}</title>
