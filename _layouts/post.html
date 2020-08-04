@@ -5,19 +5,23 @@ layout: default
   <header style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
     <h1 class="title">{{ page.feature-title | default: page.title }}</h1>
     {% if page.subtitle %}<h2 class="subtitle">{{ page.subtitle }}</h2>{% endif %}
-    <p class="meta">
-      {{ page.date | date: "%B %-d, %Y" }}
+    <div class="meta" style="margin-top: 20px">
       {%- if page.author -%}
       {% assign author = site.data.authors[page.author] %}
-      <span>
-        <span >{{ author.name }}</span>
+      <div>
         {%- if author.username  -%}
         <a href="//github.com/{{ author.username }}" target="_blank">
-        {% avatar user=author.username size=50 %}
+        {% avatar user=author.username size=32 %}
         </a>
         {%- endif -%}
-        </span>
-      {%- endif -%}</p>
+      </div>
+      <div>
+        {{ author.name }}<br>
+        {{ page.date | date: "%B %-d, %Y" }}<br>
+      </div>
+
+      {%- endif -%}
+    </div>
     </p>
 
   </header>
