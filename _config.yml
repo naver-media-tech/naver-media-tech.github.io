@@ -1,5 +1,5 @@
 # 블로그의 Base URL
-baseurl: ""
+baseurl: "/"
 url: ""
 
 meta:
