@@ -4,35 +4,41 @@ title:  RSocket Protocol은 어떻게 Reactive Stream을 지원할까?
 author: phantasmicmeans
 description: ""
 ---
-[**RSocket**](https://github.com/rsocket/rsocket)은 Websocket, tcp와 같은 byte stream transport protocol 위에서 동작하는 binary protocol이자 **reactive stream을 지원하는 application protocol**입니다. Netflix에서 시작된 rsocket은 msa 환경에서 **오버 헤드가 적은 프로토콜을 통해 http를 대체하기 위해 개발 되었고**, 현재 netifi / facebook / pivotal에 의해 support 되고 있는 오픈 소스입니다. 
+RSocket Protocol은 어떻게 Reactive Stream을 지원할까?
+=======
 
-[**여기서는**](https://www.netifi.com/rsocket) RSocket에 대해 다음과 같이 설명하고 있습니다.
+
+[**RSocket**](https://github.com/rsocket/rsocket)은 Websocket, tcp와 같은 byte stream transport protocol 위에서 동작하는 binary protocol이자 reactive stream을 지원하는 application protocol입니다. Netflix에서 시작된 rsocket은 msa 환경에서 오버 헤드가 적은 프로토콜을 통해 http를 대체하기 위해 개발 되었고, 현재 netifi / facebook / pivotal에 의해 support 되고 있는 오픈 소스입니다. 
+
+[여기서는](https://www.netifi.com/rsocket) RSocket에 대해 다음과 같이 설명하고 있습니다.
 
 - **RSocket is a next-generation, reactive, layer 5 application communication protocol for building today's modern cloud-native and microservice applications.**
-- **provide a 2x increase in performance over HTTP and gRPC.**  g
+- **provide a 2x increase in performance over HTTP and gRPC.**  
 
 cpp, js, go, python, kotlin 등을 지원하며, [Java](https://github.com/rsocket/rsocket-java)의 경우 [project reactor](https://projectreactor.io/)를 바탕으로 구현 되었고, [reactor-netty](https://github.com/reactor/reactor-netty)가 transport 역할을 합니다. 
 
-Spring Framework의 경우 5.2 RELEASE에서 RSocket에 대한 [공식 지원](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket)이 포함 되었습니다. 아직 stable version은 아닙니다만.. 최근 [Spring Blog](https://spring.io/blog/2020/03/02/getting-started-with-rsocket-spring-boot-server)에도 소개된 것을 보니 차세대 강자? 같은 느낌이 듭니다. 
+Spring Framework의 경우 5.2 RELEASE에서 RSocket에 대한 [공식 지원](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket)이 포함 되었습니다. 최근 [Spring Blog](https://spring.io/blog/2020/03/02/getting-started-with-rsocket-spring-boot-server)에도 소개된 것을 보니 차세대 강자? 같은 느낌이 듭니다. 
+&nbsp;
 
 ## Feature, Benefits of the RSocket
 
 먼저 RSocket의 주요 feature입니다.
 
-- **Reactive Stream**
-- **Application-Level Flow Control**
-- **Session Resumption**
+- Reactive Stream
+- Application-Level Flow Control
+- Session Resumption
 
-Reactive Stream을 지원하구요. 'Leasing' 그리고 'Reactive Stream'을 통해 **application-level의 flow-control**을 진행합니다. 전자의 경우 조금 생소할 수 있으나 후자의 경우 back-pressure를 통해 flow control이 진행 된다는 것을 예상할 수 있습니다. 또한 session resume을 지원합니다. 
+Reactive Stream을 지원하구요. 'Leasing' 그리고 'Reactive Stream'을 통해 application-level의 flow-control을 진행합니다. 전자의 경우 조금 생소할 수 있으나 후자의 경우 back-pressure를 통해 flow control이 진행 된다는 것을 예상할 수 있습니다. 또한 session resume을 지원합니다. 
+&nbsp;
 
 ## Interaction Model
 
 RSocket은 OSI Layer 5/6에서 동작하며, 다음과 같은 **4가지 비동기 메시징 interaction model**을 가지고 있습니다.
 
-- **Request - Response** - stream of 1, send one message and receive one back.
-- **Request - Stream** - finite stream of many, send one message and receive a stream of messages back.
-- **Fire-and-Forget** - no response, send a one-way message.
-- **Channel** - bi-directional streams, send streams of messages in both directions.
+- Request - Response - stream of 1, send one message and receive one back.
+- Request - Stream - finite stream of many, send one message and receive a stream of messages back.
+- Fire-and-Forget - no response, send a one-way message.
+- Channel - bi-directional streams, send streams of messages in both directions.
 
 요 4가지 interaction model을 보니 문득 gRPC와 비슷하다는 생각이 듭니다. 두가지 모두 uni/bi-directional stream을 지원합니다만, http2 위에서 동작하는 gRPC와 조금 더 lower level에서 동작하는 RSocket에는 차이가 있겠죠.
 
@@ -44,17 +50,17 @@ http2의 server push와 비슷한 맥락의 Fire-and-Forget에도 눈길이 가�
 
 ## 용어
 어려운 용어는 없고 bi-directional stream을 지원하므로 requester & responder 정의만 숙지하시면 됩니다. 
-- **Frame** - request 혹은 response에 포함하는 single message
-- **Fragment** - Frame에 포함되기 위해 분할 된 message의 일부 
-- **Transport** - RSocket protocol을 전달하는데에 사용하는 transport protocol로, websocket, tcp, aeron 중 하나
-- **Stream** - request / response 등 작업 단위
-- **Request** - A stream request (위 4가지 interaction model 중 하나).
-- **Payload** - A stream message (upstream or downstream). **Reactive Stream 및 Rx 기준 'onNext'에 해당**
-- **Complete** - 성공적으로 전송 완료를 알리는 event. **Reactive Stream 및 Rx 기준 'onComplete'에 해당**
-- **Client** - connection을 초기화 하는 side
-- **Server** - client로 부터의 connection을 accept 하는 side 
-- **Connection** - transport session between client and server
-- **Requester & Responder** 
+- Frame - request 혹은 response에 포함하는 single message
+- Fragment - Frame에 포함되기 위해 분할 된 message의 일부 
+- Transport - RSocket protocol을 전달하는데에 사용하는 transport protocol로, websocket, tcp, aeron 중 하나
+- Stream - request / response 등 작업 단위
+- Request - A stream request (위 4가지 interaction model 중 하나).
+- Payload - A stream message (upstream or downstream). **Reactive Stream 및 Rx 기준 'onNext'에 해당**
+- Complete - 성공적으로 전송 완료를 알리는 event. **Reactive Stream 및 Rx 기준 'onComplete'에 해당**
+- Client - connection을 초기화 하는 side
+- Server - client로 부터의 connection을 accept 하는 side 
+- Connection - transport session between client and server
+- Requester & Responder
     - 초기 connection 생성 이후, client 혹은 server는 위 4가지 interaction 모델을 활용해 interaction을 시작할 수 있음
     - connection 생성 이후에는 client, server 경계가 모호하기에 requester, responder라는 어휘를 활용
     
@@ -110,11 +116,11 @@ Stream ID는 requester에 의해 생성되고, 다음과 같은 규약을 지킵
 
 ### 1.2 Frame Types 
 
-다음은 **가장 중요** 하다고 볼 수 있는 **RSocket Frame Type**이며 각 Type은 6-bits 크기를 가집니다. 다뤄야 할 프레임이 많고, 어느 정도는 네이밍 자체로 의미를 알 수 있기에 주요 프레임 위주로 살펴 보려고 합니다.
+다음은 가장 중요 하다고 볼 수 있는 **RSocket Frame Type**이며 각 Type은 6-bits 크기를 가집니다. 다뤄야 할 프레임이 많고, 어느 정도는 네이밍 자체로 의미를 알 수 있기에 주요 프레임 위주로 살펴 보려고 합니다.
 
 순서는 아래와 같습니다.
-- **SETUP Frame**을 시작으로 flow-control에 관련 있는 **LEASE Frame**
-- RSocket의 **4가지 interaction model**인 REQUEST_(**RESPONSE/FNF/STREAM/CHANNEL**) 
+- SETUP Frame을 시작으로 flow-control에 관련 있는 LEASE Frame
+- RSocket의 **4가지 interaction model**인 REQUEST_(RESPONSE/FNF/STREAM/CHANNEL) 
 - PAYLOAD Frame 
 
 네이밍만으로 session resume 관련 프레임(RESUME/RESUME_OK) 또한 확인할 수 있습니다. 추가로 REQUEST_N 프레임의 의미 또한 짐작이 가실텐데요. 아마 **flow-control**에 관여 하는 것 같아 보입니다. 
@@ -183,9 +189,9 @@ client에 의해 전송되고, 원하는 매개 변수를 server에 전달하는
 - **Encoding MIME Type**: Data 및 Metadata 인코딩 MIME Type으로 RFC 2045에 지정된 internet media type을 따르는 US-ASCII string
 - **Setup Data**: SETUP Frame을 보내는 쪽의 연결 정보를 담은 Payload 
 
-**(R)** flag와 Resume Identification Token을 통해 client와의 connection 재개(**session resumption**)에 대한 조그마한 단서를 찾았습니다. 또한 **(L)** flag를 통해 flow-control 관련 bit도 확인되네요. LEASE Frame은 바로 뒤에서 설명할 예정입니다.
+**(R)** flag와 Resume Identification Token을 통해 client와의 connection 재개(session resumption)에 대한 조그마한 단서를 찾았습니다. 또한 **(L)** flag를 통해 flow-control 관련 bit도 확인되네요. LEASE Frame은 바로 뒤에서 설명할 예정입니다.
 
-어쨌든, SETUP 프레임 내에서 rsocket의 주요 feature 중 reactive-stream 보다 **session resumption & flow-control** 에 대한 단서를 먼저 찾았습니다.
+어쨌든, SETUP 프레임 내에서 rsocket의 주요 feature 중 reactive-stream 보다 session resumption & flow-control 에 대한 단서를 먼저 찾았습니다.
 
 &nbsp;
 
@@ -218,7 +224,7 @@ LEASE Frame은 responder측에서 requester에게 전송 되는 프레임이며 
 
 Responder는 requester로 부터의 추가 요청을 중지하고 싶은 경우, 위 value(TTL, NoR) 들이 0인 LEASE Frame을 전송하면 됩니다. 또한 TTL이 expire 되었을 경우, Number of Requests 의 value는 암묵적으로 0 입니다. **REQUEST_N Frame 과 더불어 LEASE Frame 또한 flow-control 관여하는 것으로 보입니다.**
 
-이제 **RSocket의 4가지 interaction model** 관련 프레임을 살펴 볼 차례입니다. 이 4가지 프레임은 connection 생성 후 requester가 responder 에게 **초기 전송하는 Frame** 입니다.
+이제 RSocket의 4가지 interaction model 관련 프레임을 살펴 볼 차례입니다. 이 4가지 프레임은 connection 생성 후 requester가 responder 에게 초기 전송하는 Frame 입니다.
 
 &nbsp; 
 
@@ -311,7 +317,7 @@ REQUEST_CHANNEL은 '**bi-directional streams, send streams of messages in both d
     - (**C**)omplete: stream completion을 나타냄 
 - **Initial Request N**: (31-bits) 요청할 초기 request 개수를 의미합니다. / must be > 0
 
-Requester는 **단 한개의 REQUEST_CHANNEL Frame**을 전송하는데요. 이후 subsequent messages 는 **PAYLOAD Frame**에 실려 전달됩니다. 추가로 Requester가 PAYLOAD Frame을 송신하기 전, Responder는 requester에게 **REQUEST_N Frame**을 항상 보내야합니다. 
+Requester는 **단 한개의 REQUEST_CHANNEL Frame**을 전송하는데요. 이후 subsequent messages 는 PAYLOAD Frame에 실려 전달됩니다. 추가로 Requester가 PAYLOAD Frame을 송신하기 전, Responder는 requester에게 REQUEST_N Frame을 항상 보내야합니다. 
 
 Bi-directional stream이므로 responder 또한 REQUEST_N Frame을 requester에게 전송할 수 있고, PAYLOAD Frame을 수신 받을 수 있습니다.  
 
@@ -326,7 +332,7 @@ Bi-directional stream이므로 responder 또한 REQUEST_N Frame을 requester에�
 7. RQ -> RS: PAYLOAD
 8. RQ -> RS: **COMPLETE**
 
-Stream 관련 Frame들을 살펴보니 모두 **REQUEST_N Frame**을 통해 flow-control 하고 있는데요. Reactive Stream에서의 **Complete** 또한 볼 수 있습니다. request_n(n) / complete는 발견 했습니다만.. **next**는 어디에 존재하는 것 일까요?
+Stream 관련 Frame들을 살펴보니 모두 **REQUEST_N Frame**을 통해 flow-control 하고 있는데요. Reactive Stream에서의 Complete 또한 볼 수 있습니다. request_n(n) / complete는 발견 했습니다만.. next는 어디에 존재하는 것 일까요?
 
 얼핏 보니 PAYLOAD일 확률이 높아 보입니다. 
 
@@ -358,9 +364,9 @@ Stream 관련 Frame들을 살펴보니 모두 **REQUEST_N Frame**을 통해 flow
 
 ## 결론 
 
-RSocket Protocol은 Framing, 그리고 Frame 내의 **flag bits를 활용해 생각보다 간단하게** Reactive Stream을 지원하고 있습니다. Flow-control의 경우 reactive-stream은 REQUEST_N Frame을 통한 back-pressure, 그 외의 경우 LEASE Frame을 활용해 flow control을 지원하고 있습니다.
+RSocket Protocol은 Framing, 그리고 Frame 내의 flag bits를 활용해 생각보다 간단하게 Reactive Stream을 지원하고 있습니다. Flow-control의 경우 reactive-stream은 REQUEST_N Frame을 통한 back-pressure, 그 외의 경우 LEASE Frame을 활용해 flow control을 지원하고 있습니다.
 
-추가로 성능적인 부분이 궁금 하시다면 [벤치마킹 링크](https://dzone.com/articles/rsocket-vs-grpc-benchmark)를 참고 하시면 됩니다. 조건마다 다르긴 하겠지만, 해당 링크 기준으로는 RSocket이 더 나은 결과를 내고 있습니다. 글의 필자는 "RSocket performs better than gRPC in each and every category." 라고 강하게 말하네요.
+추가로 성능적인 부분이 궁금 하시다면 [벤치마킹 링크](https://dzone.com/articles/rsocket-vs-grpc-benchmark)를 참고 하시면 됩니다. 조건마다 다르겠지만, 해당 링크 기준으로 RSocket이 더 나은 결과를 내고 있습니다. 글의 필자는 "RSocket performs better than gRPC in each and every category." 라고 강하게 말하네요.
 
 ## Reference
--  https://rsocket.io/docs/Protocol (cert 관련 [이슈](https://github.com/rsocket/rsocket-website/issues/16)일 경우 다른 브라우저를 사용해보세요!) 
+-  https://rsocket.io/docs/Protocol 
