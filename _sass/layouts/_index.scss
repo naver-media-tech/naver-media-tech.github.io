@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 // Header text feature
 .call-out {
   @extend %padding-small-vertical-regular-width;
@@ -13,9 +14,12 @@
   margin-bottom: 0;
 }
 .call-out p {
-  font-size: 1.5em;
+  font-size: 0.9em;
   font-family: Nanum Pen Script, sans-serif;
   //  Nanum Gothic Coding, Gaegu, https://fonts.google.com/?subset=korean
+  @media (max-width: 770px) {
+    font-size: 0.7em;
+  }
 }
 .call-out a {
   //font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
