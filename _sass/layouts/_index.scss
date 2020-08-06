@@ -51,12 +51,45 @@
     margin: 0;
   }
 }
-.flex-post-author{
+.flex-post-author {
   display: flex;
   margin-top: 25px;
 }
-.flex-post-author-item {
+.flex-post-author-item  {
   margin-right: 10px;
+}
+
+.author-info {
+  margin-top: 25px;
+}
+.author-p-img {
+  margin-right: 10px;
+  position: absolute;
+}
+.author-img {
+  border-radius: 10%;
+  width: 40px;
+  height: 40px
+}
+.author-p-info {
+  padding-left: 55px;
+  .author-name {
+      margin-top: 1em;
+      color: rgba($text-color, .5);
+      font-size: 0.6em;
+      letter-spacing: 0.2em;
+      margin: 0;
+  }
+}
+.author-description {
+  margin-top: 1em;
+  color: rgba($text-color, .6);
+  letter-spacing: 0.1em;
+  font-size: 0.7em;
+
+}
+.post_author_info {
+  margin-top: 3em;
 }
 // Pagination
 .pagination .button {

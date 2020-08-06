@@ -4,9 +4,12 @@ kimtaeng: # post의 author에 들어갑니다.
   email: itsmetaeng@gmail.com
 
 phantasmicmeans: # post의 author에 들어갑니다.
-  name: phantasmicmeans
+  name: 이상민
+  company: 네이버 뉴스플랫폼
   username: phantasmicmeans
   email: phantasmicmeans@kakao.com
+  description: 안녕하세요 자기소개 테스트입니다. 안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.
+  image: dog.png
 
 ksuesr:
   name: byeonghoon

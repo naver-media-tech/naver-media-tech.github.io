@@ -27,11 +27,38 @@ layout: default
   </header>
   <section class="post-content">{{ content }}</section>
 
+
+  <div class="post_author_info">
+    <hr/>
+    <div class="author-info">
+      <div class="author-p-img">
+        {%- if author.description  -%}
+        <img class="author-img" src="/assets/img/{{ author.image }}" alt=""/>
+        {% else %}
+        <img class="åvatar" src="/assets/img/avatar.png" alt=""/>
+        {%- endif -%}
+      </div>
+      {%- if author.name  -%}
+      <div class="author-p-info">
+        <div class="author-name">
+          <span>{{ author.name }} | {{ author.company }}</span>
+        </div>
+        {%- if author.description  -%}
+        <div class="author-description">
+          {{ author.description }}
+        </div>
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+
   <hr/>
 
   <section>
     {% include post_comments.html %}
   </section>
+
 </article>
 
 
