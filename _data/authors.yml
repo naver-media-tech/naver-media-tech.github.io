@@ -13,6 +13,14 @@ phantasmicmeans: # post의 author에 들어갑니다.
   description: 안녕하세요 자기소개 테스트입니다. 디폴트 image는 github profile image 활용합니다. 안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.
   image: dog.png
 
+skywhite15: # post의 author에 들어갑니다.
+  name: 김기훈
+  company: 네이버 스포츠플랫폼
+  username: OsoriAndOmori
+  email: skywhite15@korea.ac.kr
+  description: 안녕하세요 자기소개 테스트입니다. 이정도면 제법 괜찮아보이는데요.
+  image: dog.png
+
 ksuesr:
   name: byeonghoon
   username: ksuesr
