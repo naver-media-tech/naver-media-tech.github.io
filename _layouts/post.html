@@ -28,14 +28,15 @@ layout: default
   <section class="post-content">{{ content }}</section>
 
 
-  <div class="post_author_info">
+  {%- if author.company and author.description  -%}
+  <div class="post_author_info" style="">
     <hr/>
     <div class="author-info">
       <div class="author-p-img">
-        {%- if author.description  -%}
+        {%- if author.image  -%}
         <img class="author-img" src="/assets/img/{{ author.image }}" alt=""/>
         {% else %}
-        <img class="åvatar" src="/assets/img/avatar.png" alt=""/>
+        {% avatar user=author.username size=40 %}
         {%- endif -%}
       </div>
       {%- if author.name  -%}
@@ -43,17 +44,15 @@ layout: default
         <div class="author-name">
           <span>{{ author.name }} | {{ author.company }}</span>
         </div>
-        {%- if author.description  -%}
         <div class="author-description">
           {{ author.description }}
         </div>
-        {%- endif -%}
       </div>
       {%- endif -%}
     </div>
   </div>
-
   <hr/>
+  {%- endif -%}
 
   <section>
     {% include post_comments.html %}

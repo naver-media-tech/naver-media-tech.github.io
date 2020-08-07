@@ -59,11 +59,14 @@
   margin-right: 10px;
 }
 
+.post_author_info {
+  margin-top: 5em;
+}
 .author-info {
-  margin-top: 25px;
+  margin-top: 1.5em;
 }
 .author-p-img {
-  margin-right: 10px;
+  margin-right: 0.6em;
   position: absolute;
 }
 .author-img {
@@ -72,7 +75,7 @@
   height: 40px
 }
 .author-p-info {
-  padding-left: 55px;
+  padding-left: 3.2em;
   .author-name {
       margin-top: 1em;
       color: rgba($text-color, .5);
@@ -88,9 +91,7 @@
   font-size: 0.7em;
 
 }
-.post_author_info {
-  margin-top: 3em;
-}
+
 // Pagination
 .pagination .button {
   margin: 0 1.5em;

@@ -1,14 +1,16 @@
 kimtaeng: # post의 author에 들어갑니다.
   name: kimtaeng
+  company: 네이버 뉴스플랫폼
   username: madplay
   email: itsmetaeng@gmail.com
+  description: 안녕하세요 자기소개 테스트입니다. 디폴트 image는 github profile image 활용합니다.
 
 phantasmicmeans: # post의 author에 들어갑니다.
   name: 이상민
   company: 네이버 뉴스플랫폼
   username: phantasmicmeans
   email: phantasmicmeans@kakao.com
-  description: 안녕하세요 자기소개 테스트입니다. 안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.
+  description: 안녕하세요 자기소개 테스트입니다. 디폴트 image는 github profile image 활용합니다. 안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.안녕하세요 자기소개 테스트입니다.
   image: dog.png
 
 ksuesr:
