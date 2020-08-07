@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "마크다운 문법 등은 이 글을 참고하세요."
-author: "kimtaeng"
+author: "skywhite15"
 description: "여기에는 글 설명이 들어갈 위치랍니다. 여기에는 글 설명이 들어갈 위치랍니다. 여기에는 글 설명이 들어갈 위치랍니다. "
 ---
 
