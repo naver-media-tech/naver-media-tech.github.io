@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about
-feature-img: "assets/img/star-banner-v3.jpeg" # 탑 이미지
+#feature-img: "assets/img/star-banner-v3.jpeg" # 탑 이미지
 ---
   
 미디어Tech는 하루에도 수천만의 이용자들이 사용하는 **뉴스, 연예, 스포츠 등의 미디어 콘텐츠 서비스를 담당하며,**<br/> 
