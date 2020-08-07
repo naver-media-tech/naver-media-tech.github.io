@@ -1,5 +1,5 @@
 # 블로그의 Base URL
-baseurl: "/"
+baseurl: "/" # 로컬에서 개발할 때는 baseUrl을 "" 로 수정해주세요.
 url: ""
 
 meta:
