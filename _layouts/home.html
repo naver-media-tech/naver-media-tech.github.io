@@ -22,9 +22,16 @@ layout: default
             </a>
           </h1>
       </header>
-      <div class="excerpt">
-        {{ post.excerpt | strip_newlines | strip_html | truncatewords: 35, "..." }}
-        <!--        {{ post.excerpt }} 본문 요약문은 이걸 씁니다. -->
+      <div class="post-teaser-wrapper">
+        {% if post.thumbnail %}
+          <a class="post-link-t" href="{{ post.url | relative_url }}">
+            <img class="post-thumbnail" src="/assets/img/{{ post.thumbnail }}" alt="">
+          </a>
+        {% endif %}
+        <div class="excerpt">
+          {{ post.excerpt | strip_newlines | strip_html | truncatewords: 40 }}
+          <!--        {{ post.excerpt }} 본문 요약문은 이걸 씁니다. -->
+        </div>
       </div>
       <div class="meta flex-post-author">
         {%- if post.authors -%}

@@ -41,15 +41,31 @@
     p a {
       @extend .body-link;
     }
+   .post-teaser-wrapper {
+    min-height: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   }
   .excerpt {
-    margin-top: 1em;
-    padding-top: 15px;
+    max-height: 70px;
+    padding-top: 0.2em;
+    overflow: hidden;
     color: rgba($text-color, .5);
     font-size: 0.9em;
     letter-spacing: 0.1em;
     margin: 0;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
+}
+.post-thumbnail {
+  float: left;
+  width: 100px;
+  height: 70px;
+  margin-right: 15px;
 }
 .flex-post-author {
   display: flex;

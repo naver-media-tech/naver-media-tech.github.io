@@ -2,6 +2,7 @@
 layout: post
 title:  RSocket Protocol은 어떻게 Reactive Stream을 지원할까?
 author: phantasmicmeans
+thumbnail: thumbnail/rsocket.png
 description: ""
 ---
 [**RSocket**](https://github.com/rsocket/rsocket)은 Websocket, tcp와 같은 byte stream transport protocol 위에서 동작하는 binary protocol이자 reactive stream을 지원하는 application protocol입니다. Netflix에서 시작된 rsocket은 msa 환경에서 오버 헤드가 적은 프로토콜을 통해 http를 대체하기 위해 개발 되었고, 현재 netifi / facebook / pivotal에 의해 support 되고 있는 오픈 소스입니다. 
