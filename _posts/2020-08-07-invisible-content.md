@@ -6,7 +6,7 @@ thumbnail: thumbnail/rsocket.png    # thumbnail
 permalink: /staging-sample1/        # staging url 로 공유할 링크. 원하는대로 입력
 staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
-## Staging 포스트 작성 가이드 
+## Staging 포스트 작성 가이드 <br><br>
 ### 1. 작성자 등록
 - 이미 등록했다면, 이 과정은 생략해도 됩니다.
 - 먼저, `_data` 디렉토리에 있는 `authors.yml` 파일에 자신의 정보를 입력합니다.
@@ -18,7 +18,7 @@ kimtaeng: # 포스팅의 `author`와 매핑됨
 ```
 
 ### 2. 게시물 생성
-`/_posts/` 디렉토리 안에 `2020-08-07-invisible-content.md` 를 복사하여 
+`/_posts/` 디렉토리 안에 `2020-08-07-invisible-content.md` 를 복사하여 <br>
 `날짜-{url에 붙을 title}.md` 패턴으로 생성합니다. 
 
 ### 3. 게시물 작성 
