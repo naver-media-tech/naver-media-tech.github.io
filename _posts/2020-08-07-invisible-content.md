@@ -7,6 +7,10 @@ permalink: /staging-sample1/        # staging url 로 공유할 링크. 원하�
 staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
 ## Staging 포스트 작성 가이드 <br><br>
+### 0. fork 를 뜨고, 체크아웃 받는다.
+- fork https://github.com/naver-media-tech/naver-media-tech.github.io
+- 추후 작업이 완료되었을 때, pull request를 main media tech repo로 날려준다.
+
 ### 1. 작성자 등록
 - 이미 등록했다면, 이 과정은 생략해도 됩니다.
 - 먼저, `_data` 디렉토리에 있는 `authors.yml` 파일에 자신의 정보를 입력합니다.
