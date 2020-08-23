@@ -3,7 +3,7 @@ layout: post
 title: Staging 포스트 작성 가이드       # 페이지 최상단 타이틀
 author: skywhite15                  # authors.yml 에 작성한 본인의 이
 thumbnail: thumbnail/rsocket.png    # thumbnail
-permalink: /staging-sample1/        # staging url 로 공유할 링크. 원하는대로 입력
+permalink: /staging-sample1        # staging url 로 공유할 링크. 원하는대로 입력
 staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
 ## Staging 포스트 작성 가이드 <br><br>
@@ -33,7 +33,7 @@ layout: post
 title: Staging 포스트 작성 가이드       # 페이지 최상단 타이틀
 author: skywhite15                  # authors.yml 에 작성한 본인의 이름
 thumbnail: thumbnail/rsocket.png    # assets/img/thumbnail/ 하위에 페이지 썸네일 놓기
-permalink: /staging-sample1/        # staging url 로 공유할 링크. 원하는대로 입력
+permalink: /staging-sample1        # staging url 로 공유할 링크. 원하는대로 입력
 staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
 ```

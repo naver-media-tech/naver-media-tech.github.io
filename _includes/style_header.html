@@ -1,21 +1,11 @@
-<!-- CSS -->
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-<!--Favicon-->
 <link rel="shortcut icon" href="{{ site.baseurl }}/{{ site.meta.favicon }}" type="image/x-icon">
-<!-- Canonical -->
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}">
-<!-- RSS -->
-<link rel="alternate" type="application/atom+xml" title="{{ site.meta.title }}"
-      href="{{ "/feed.xml" | relative_url }}" />
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<!-- Google Fonts -->
 {% if site.theme_settings.google_fonts %}
-<link href="//fonts.googleapis.com/css?family={{ site.theme_settings.google_fonts }}" rel="stylesheet"
-      type="text/css">
+<link href="//fonts.googleapis.com/css?family={{ site.theme_settings.google_fonts }}" rel="stylesheet" type="text/css">
 {% endif %}
-<!-- KaTeX -->
+
 {% if site.theme_settings.katex and page.id %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
       integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
@@ -23,3 +13,6 @@
         integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ"
         crossorigin="anonymous"></script>
 {% endif %}
+
+<link type="text/css" rel="stylesheet" href="/assets/css/lib/font/nanumgothic.css">
+<link type="text/css" rel="stylesheet" href="/assets/css/custom/post.css">
