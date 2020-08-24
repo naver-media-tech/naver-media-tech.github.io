@@ -2,13 +2,10 @@
 layout: post
 title: Spring Webflux Cache       # 페이지 최상단 타이틀
 author: dreamchaser                  # authors.yml 에 작성한 본인의 이
-thumbnail: thumbnail/webflux.jpg    # thumbnail
-permalink: /staging-webflux/        # staging url 로 공유할 링크. 원하는대로 입력
+thumbnail: thumbnail/webflux.png    # thumbnail
+permalink: /staging-webflux        # staging url 로 공유할 링크. 원하는대로 입력
 staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
-# 개요
---------------
-<br>
 
 스프링 웹플럭스와 Reactor를 사용하여 웹서버를 개발할 때 고민이 되는 부분이 있습니다.
 바로 **'캐시'**입니다.
