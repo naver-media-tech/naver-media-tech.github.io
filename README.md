@@ -40,4 +40,4 @@ $ bundle exec jekyll serve --watch
 <br>
 
 ## 글 작성 가이드
-https://naver-media-tech.github.io/staging-sample1/
+https://naver-media-tech.github.io/staging-sample1
