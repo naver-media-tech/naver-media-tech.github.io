@@ -406,3 +406,8 @@ subscribeOn()을 이용한 블로킹 로직 감싸는 것과 관련된 내용은
 [https://projectreactor.io/docs/extra/snapshot/api/reactor/cache/CacheMono.html](https://projectreactor.io/docs/extra/snapshot/api/reactor/cache/CacheMono.html)
 
 [https://github.com/spring-projects/spring-framework/issues/17920](https://github.com/spring-projects/spring-framework/issues/17920)
+
+<br>
+<br>
+
+위 내용은 작성자 본인의 [개인 블로그](https://dreamchaser3.tistory.com/17)에도 게재되어 있습니다.
