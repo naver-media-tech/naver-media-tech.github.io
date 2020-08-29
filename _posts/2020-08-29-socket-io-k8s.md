@@ -14,10 +14,10 @@ socket.io 기반 웹소켓 서버를 오토스케일링 가능한 컨테이너 �
 네이버 스포츠 라이브 중계 서비스에는 실시간 이벤트 전송을 위한 socket.io 푸쉬 서버가 있습니다.
 원래 물리장비 6대로 가동하고 있던 이 서버에는 아주 많은 비효율이 발생하고 있었습니다.
 
-1. 물리서버의 cpu 및 리소스는 매우 풍부한데 비하여, 서버별 네트워크 커넥션 개수의 한계로 인해 제 성능을 발휘하지 못하고 있었습니다. 
+ 물리서버의 cpu 및 리소스는 매우 풍부한데 비하여, 서버별 네트워크 커넥션 개수의 한계로 인해 제 성능을 발휘하지 못하고 있었습니다. 
 -  작은 리소스로 여러대의 서버 생성 하는게 효율적.
 
-2. 경기가 중계중일때는 동시에 10만명 이상 접속을 하지만, 경기가 없을 때는 말그대로 '노는' 서버가 됩니다. 
+ 경기가 중계중일때는 동시에 10만명 이상 접속을 하지만, 경기가 없을 때는 말그대로 '노는' 서버가 됩니다. 
 - 트래픽에 증가와 감소에 따라 오토스케일링필요.
 
 위 두가지 이유로 socket.io 푸쉬 서버의 컨테이너화 및 오토스케일링 환경 구성을 진행하게 되었습니다.
@@ -27,14 +27,14 @@ socket.io 기반 웹소켓 서버를 오토스케일링 가능한 컨테이너 �
 
 
 ### 0. 초기 셋팅
-1. 순간 트래픽 보다는 최대한 많은 동시 커넥션을 안정적으로 유지하는게 목표였기에, reverse proxy를 통한 websocket 연결시 [port 고갈 이슈](https://making.pusher.com/ephemeral-port-exhaustion-and-how-to-avoid-it/)가 생기는 nginx 를 빼고 [nodeJs express](https://expressjs.com/ko/) 로만 직접 서비스 하도록 결정했습니다. 
+ 순간 트래픽 보다는 최대한 많은 동시 커넥션을 안정적으로 유지하는게 목표였기에, reverse proxy를 통한 websocket 연결시 [port 고갈 이슈](https://making.pusher.com/ephemeral-port-exhaustion-and-how-to-avoid-it/)가 생기는 nginx 를 빼고 [nodeJs express](https://expressjs.com/ko/) 로만 직접 서비스 하도록 결정했습니다. 
 
-2. CPU 자원 대비 최대한 많은 동시커넥션을 받기위해 [pm2 cluster](https://pm2.keymetrics.io/docs/usage/cluster-mode/) 환경을 구성하였습니다.
+ CPU 자원 대비 최대한 많은 동시커넥션을 받기위해 [pm2 cluster](https://pm2.keymetrics.io/docs/usage/cluster-mode/) 환경을 구성하였습니다.
 `1 cluster = 1 CPU` 로 1 Pod 당 cluster 개수를 바꿔가며 실험한 결과 
 1 Pod 당 4 cluster  일때 가장 효율이 좋았습니다.
 
 이렇게 아래 Pod 구조로 서비스를 구성하고, 오토스케일링을 포함한 쿠버네티스 환경을 셋팅하였습니다.
-![image](https://media.oss.navercorp.com/user/7829/files/f827c580-a9cc-11ea-9853-ed3a7c9a913c)
+![image](https://user-images.githubusercontent.com/22769886/91629088-ae191380-ea00-11ea-98b6-5cf6dd6b1c7d.png)
 
 <br>
 
@@ -173,7 +173,7 @@ spec:
 
 이를 기반으로 socket.io 관련 Grafana 모니터링 페이지도 커스터마이징할 수 있었습니다.
 
-![image](https://media.oss.navercorp.com/user/7829/files/70d96100-aa63-11ea-879d-c98e96afeeb9)
+![image](https://user-images.githubusercontent.com/22769886/91629108-e7518380-ea00-11ea-9864-145edf1711b6.png)
 
 <br>
 
@@ -248,7 +248,7 @@ function doSocket(ip) {
   - 결과
       - Pod 1개 -> 4개로 정상적으로 오토스케일링.
       - 전체 시간동안 1.5/4.0 이하의 CPU 사용
-  - ![image](https://media.oss.navercorp.com/user/7829/files/b6ecef80-aa78-11ea-9ddd-93d64caee819)
+  - ![image](https://user-images.githubusercontent.com/22769886/91629114-ffc19e00-ea00-11ea-814d-ca66e7de4aa8.png)
 
 <br>
 
@@ -257,8 +257,8 @@ function doSocket(ip) {
   - 결과
      - Pod 4개 -> 20개 까지 정상적으로 오토스케일링.
      - 리커넥션 최대횟수 초과로 서서히 총 커넥션 개수 감소.
-  - ![image](https://media.oss.navercorp.com/user/7829/files/a38e5400-aa79-11ea-8f5c-48ee0c9c580d)
-
+  - ![image](https://user-images.githubusercontent.com/22769886/91629118-0819d900-ea01-11ea-82cd-f67892680995.png)
+  
 <br>
 
 ### Pod 종료 테스트
