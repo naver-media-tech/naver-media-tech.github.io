@@ -4,7 +4,7 @@ title: socket.io 서버 컨테이너 환경으로 구축하기      # 페이지 
 author: albireoS2                  # authors.yml 에 작성한 본인의 이
 thumbnail: thumbnail/socket-io-k8s.png    # thumbnail
 permalink: /socket-io-k8s       # staging url 로 공유할 링크. 원하는대로 입력
-staging: false                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
+staging: true                       # staging 페이지의 경우, staging true 옵션을 !!!무조건!!! 줄것.
 ---
 
 socket.io 기반 웹소켓 서버를 오토스케일링 가능한 컨테이너 환경으로 구성하면서 
