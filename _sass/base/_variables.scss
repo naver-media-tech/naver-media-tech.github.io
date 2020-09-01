@@ -1,6 +1,6 @@
 // Typography
-$font-family-main: 'Nanum Gothic', 'Source Sans Pro', Helvetica, Arial, sans-serif !default;
-$font-family-headings: 'Nanum Gothic', 'Source Sans Pro', Helvetica, Arial, sans-serif !default;
+$font-family-main: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif !default;
+$font-family-headings: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif !default;
 $font-size: 1.10em !default;
 
 // Padding
@@ -10,13 +10,13 @@ $padding-small: 5% !default;
 $padding-x-small: 3% !default;
 
 // Brand colours
-$brand-color: #fff !default;
-$background-color: #fff !default;
+$brand-color: rgb(30, 31, 32) !default;
+$background-color: rgb(30, 31, 32) !default;
 $border-color: rgba(0, 0, 0, 0.1) !default; // rgba recommended if using feature images
 
 // Typography colours
-$text-color: #383838 !default;
-$link-color: #1ABC9C !default;
+$text-color: rgb(217, 217, 217) !default;
+$link-color: #1cba8c !default;
 $selection-color: #D4D4D4 !default; // visible when highlighting text
 
 // Tags color
@@ -26,7 +26,7 @@ $tags-color: #b0b0b0 !default;
 $search-color: #999 !default;
 
 // Header colours
-$header-link-color: #383838 !default;
+$header-link-color: rgb(217, 217, 217) !default;
 
 // Feature image for articles
 $feature-image-text-color: #fff !default;
